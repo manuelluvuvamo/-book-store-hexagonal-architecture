@@ -12,6 +12,6 @@ class CategoryExternalBD1Seeder extends Seeder
      */
     public function run(): void
     {
-        \App\Infrastructure\Models\CategoryExternalBD1::factory(5)->create();
+        \App\Models\CategoryExternalBD1::factory(5)->create();
     }
 }

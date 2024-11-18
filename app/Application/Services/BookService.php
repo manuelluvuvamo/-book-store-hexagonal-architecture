@@ -14,8 +14,13 @@ class BookService
         $this->bookRepository = $bookRepository;
     }
 
-    public function addBook(Book $book): void
+    public function addBook($data): bool
     {
-        $this->bookRepository->save($book);
+        return $this->bookRepository->save($data);
+    }
+
+    public function listAllBooks(): object
+    {
+        return $this->bookRepository->all();
     }
 }

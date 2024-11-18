@@ -30,6 +30,35 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $migrationsPath = database_path('migrations');
+        $paths = $this->getAllSubdirectoriesOptimized($migrationsPath);
+
+        $this->loadMigrationsFrom($paths);
+    }
+
+    /**
+     * @param $dir
+     * @return array
+     */
+    function getAllSubdirectoriesOptimized($dir)
+    {
+        $subdirectories = [];
+
+        $items = scandir($dir);
+
+        foreach ($items as $item) {
+            if ($item !== '.' && $item !== '..') {
+                $path = $dir . DIRECTORY_SEPARATOR . $item;
+                if (is_dir($path)) {
+                    $subdirectories[] = $path;
+                    $subdirectoriesToAdd = $this->getAllSubdirectoriesOptimized($path);
+                    foreach ($subdirectoriesToAdd as $subdirToAdd) {
+                        $subdirectories[] = $subdirToAdd;
+                    }
+                }
+            }
+        }
+
+        return $subdirectories;
     }
 }

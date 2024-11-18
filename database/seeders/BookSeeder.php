@@ -12,6 +12,6 @@ class BookSeeder extends Seeder
      */
     public function run(): void
     {
-        \Database\Factories\BookFactory::new()->count(5)->create();
+        \App\Models\Book::factory(5)->create();
     }
 }

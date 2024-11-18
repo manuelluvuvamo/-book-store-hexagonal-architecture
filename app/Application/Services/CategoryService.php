@@ -13,7 +13,7 @@ class CategoryService
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function listAllCategories(): array
+    public function listAllCategories(): object
     {
         return $this->categoryRepository->all();
     }

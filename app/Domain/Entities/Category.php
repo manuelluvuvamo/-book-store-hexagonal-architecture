@@ -2,7 +2,7 @@
 
 namespace App\Domain\Entities;
 
-class Category
+class Category implements \JsonSerializable
 {
     private string $name;
 
@@ -14,5 +14,12 @@ class Category
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'name' => $this->name,
+        ];
     }
 }

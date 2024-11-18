@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Infrastructure\Models\CategoryExternalBD1;
-use App\Infrastructure\Models\CategoryExternalBD2;
+use App\Models\CategoryExternalBD1;
+use App\Models\CategoryExternalBD2;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Infrastructure\Models\Book>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
  */
 class BookFactory extends Factory
 {
